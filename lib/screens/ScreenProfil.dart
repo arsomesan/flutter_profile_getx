@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
-import '../model/profil.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_instance/src/extension_instance.dart';
+import 'package:profile_try_1/controller/profil_controller.dart';
+import '../model/profil_model.dart';
 
+final ProfilController controller = Get.put(ProfilController());
 class ScreenProfil extends StatelessWidget {
   const ScreenProfil({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    print(controller);
     return Scaffold(
       appBar: AppBar(
         title: Text("Profil"),
+        backgroundColor: Colors.grey,
       ),
       body: Center(
         child:
@@ -28,7 +34,7 @@ class ScreenProfil extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    child: Text("Hello"),
+                    child: Text("Test"),
                   )
                 ],
 
