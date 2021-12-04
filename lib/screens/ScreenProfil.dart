@@ -35,15 +35,26 @@ class ScreenProfil extends StatelessWidget {
               ),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.black,
         child: Icon(Icons.home),
         onPressed: () {},
       ),
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.orange,
-        child: Container(height: 50.0),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.grey,
+        selectedItemColor: Colors.white,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              label: 'Suchen',
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Profil',
+          ),
+        ]
       ),
       floatingActionButtonLocation:
-        FloatingActionButtonLocation.centerDocked,
+      FloatingActionButtonLocation.centerDocked,
 
     );
   }
