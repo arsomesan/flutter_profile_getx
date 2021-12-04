@@ -20,7 +20,7 @@ class RemoteServices {
   // Loading from Assets
 
   static Future<List<Profil>> fetchProfileFromAssets() async {
-    String jsonString = await rootBundle.loadString("../assets/profil.json");
+    String jsonString = await rootBundle.loadString("assets/profil.json");
 
     var result = profilFromJson(jsonString);
     return result;

@@ -8,12 +8,13 @@ class ProfilController extends GetxController {
 
   @override
   void onInit() {
-    fetchProfil();
+    fetchProfilfromassets();
     super.onInit();
   }
 
-  void fetchProfilefromassets() async {
-    var profil = RemoteServices.fetchProfileFromAssets();
+  void fetchProfilfromassets() async {
+    var pro = await RemoteServices.fetchProfileFromAssets();
+    profil.value = pro;
   }
 
   void fetchProfil() async {
