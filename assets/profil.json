@@ -1,0 +1,21 @@
+[
+  {
+    "name": "Milde",
+    "vorname": "Jan-Torsten",
+    "login": "milde",
+    "password": "123456",
+    "adresse": {
+      "ort": "Fulda",
+      "strasse": "Leipziger Strasse",
+      "hausnummer": "123"
+    },
+    "kontakt": {
+      "email": "milde@hs-fulda.de",
+      "tel": "0661 9640 301",
+      "web": "www.hs-fulda.de"
+    },
+    "zugriff": {
+      "datum": "2021-11-23"
+    }
+  }
+]
