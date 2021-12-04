@@ -46,7 +46,7 @@ class ScreenProfil extends StatelessWidget {
                     shape: BoxShape.circle,
                     image: DecorationImage(
                         image: NetworkImage(
-                            'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2F25%2F49%2F82%2F25498264b4b0e7bd98587789c0e4ffaa.jpg&f=1&nofb=1'),
+                            'https://c.tenor.com/khnabtPdWnsAAAAM/peepo-d-peepo.gif'),
                         fit: BoxFit.fill),
                   ),
                 ),
