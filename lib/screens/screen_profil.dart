@@ -3,13 +3,12 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:profile_try_1/controller/profil_controller.dart';
-import 'package:profile_try_1/screens/ScreenProfileSettings.dart';
+import 'package:profile_try_1/screens/screen_profil_settings.dart';
 import '../model/profil_model.dart';
 import '../global/glovar.dart';
 
 final ProfilController controller = Get.put(ProfilController());
 Profil profil = controller.profil[0];
-var profillength = controller.profil.length;
 var email = profil.kontakt?.email;
 var tel = profil.kontakt?.tel;
 var strasse = profil.adresse?.strasse;
@@ -30,11 +29,16 @@ class ScreenProfil extends StatelessWidget {
         backgroundColor: Glovar.grey,
         actions: [
           IconButton(
-            icon: Icon(Icons.settings),
-            onPressed: () {
-              Get.to(ScreenProfilSettings());
-            }
+              icon: Icon(Icons.edit),
+              onPressed: () {
+                Get.to(ScreenProfilSettings());
+              }
           ),
+          IconButton(
+            icon: Icon(Icons.settings),
+            onPressed: () {}
+          ),
+
         ]
       ),
       body: SingleChildScrollView(
@@ -46,7 +50,7 @@ class ScreenProfil extends StatelessWidget {
                 margin: EdgeInsets.all(20.0),
                 width: 200,
                 height: 200,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
                       image: NetworkImage(
@@ -72,14 +76,14 @@ class ScreenProfil extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Persönliche Daten",
+                      const Text("Persönliche Daten",
                           style: TextStyle(
                               fontWeight: FontWeight.w900, fontSize: 25)),
                       Container(
                           margin: EdgeInsets.only(top: 10.0),
                           child: Row(
                             children: [
-                              Text(
+                              const Text(
                                 "E-Mail: ",
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
@@ -91,7 +95,7 @@ class ScreenProfil extends StatelessWidget {
                         margin: EdgeInsets.only(top: 10.0),
                         child: Row(
                           children: [
-                            Text(
+                            const Text(
                               "Telefon: ",
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
@@ -103,7 +107,7 @@ class ScreenProfil extends StatelessWidget {
                         margin: EdgeInsets.only(top: 10.0),
                         child: Row(
                           children: [
-                            Text(
+                            const Text(
                               "Adresse: ",
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
@@ -122,14 +126,14 @@ class ScreenProfil extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Fähigkeiten",
+                  const Text("Fähigkeiten",
                       style: TextStyle(
                           fontWeight: FontWeight.w900, fontSize: 25)),
                   Container(
                     margin: EdgeInsets.only(top: 10.0),
                     child: Row(
                       children: [
-                        Text(
+                        const Text(
                           "E-Mail: ",
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
@@ -141,7 +145,7 @@ class ScreenProfil extends StatelessWidget {
                     margin: EdgeInsets.only(top: 10.0),
                     child: Row(
                       children: [
-                        Text(
+                        const Text(
                           "Telefon: ",
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
@@ -153,7 +157,7 @@ class ScreenProfil extends StatelessWidget {
                     margin: EdgeInsets.only(top: 10.0),
                     child: Row(
                       children: [
-                        Text(
+                        const Text(
                           "Adresse: ",
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
@@ -172,14 +176,14 @@ class ScreenProfil extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Fähigkeiten",
+                  const Text("Fähigkeiten",
                       style: TextStyle(
                           fontWeight: FontWeight.w900, fontSize: 25)),
                   Container(
                     margin: EdgeInsets.only(top: 10.0),
                     child: Row(
                       children: [
-                        Text(
+                        const Text(
                           "E-Mail: ",
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
@@ -191,7 +195,7 @@ class ScreenProfil extends StatelessWidget {
                     margin: EdgeInsets.only(top: 10.0),
                     child: Row(
                       children: [
-                        Text(
+                        const Text(
                           "Telefon: ",
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
@@ -203,7 +207,7 @@ class ScreenProfil extends StatelessWidget {
                     margin: EdgeInsets.only(top: 10.0),
                     child: Row(
                       children: [
-                        Text(
+                        const Text(
                           "Adresse: ",
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),

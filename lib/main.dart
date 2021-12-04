@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'screens/ScreenProfil.dart';
+import 'screens/screen_profil.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 void main() {
