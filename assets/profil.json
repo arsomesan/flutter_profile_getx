@@ -17,5 +17,24 @@
     "zugriff": {
       "datum": "2021-11-23"
     }
+  },
+  {
+    "name": "Muster",
+    "vorname": "Max",
+    "login": "mustermax",
+    "password": "123456",
+    "adresse": {
+      "ort": "Hanau",
+      "strasse": "Leipziger Strasse",
+      "hausnummer": "123"
+    },
+    "kontakt": {
+      "email": "muster@hs-fulda.de",
+      "tel": "0661 9640 301",
+      "web": "www.mustermax.de"
+    },
+    "zugriff": {
+      "datum": "2021-12-24"
+    }
   }
 ]

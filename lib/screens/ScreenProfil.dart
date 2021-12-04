@@ -5,12 +5,16 @@ import 'package:profile_try_1/controller/profil_controller.dart';
 import '../model/profil_model.dart';
 
 final ProfilController controller = Get.put(ProfilController());
+Profil profil = controller.profil[0];
+var profillength = controller.profil.length;
 class ScreenProfil extends StatelessWidget {
   const ScreenProfil({Key? key}) : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
-    print(controller);
+    print("Profil:");
+    print(profillength);
     return Scaffold(
       appBar: AppBar(
         title: Text("Profil"),
@@ -34,7 +38,7 @@ class ScreenProfil extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    child: Text("Test"),
+                    child: Text("Apu Apustaja"),
                   )
                 ],
 

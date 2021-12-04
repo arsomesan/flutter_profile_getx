@@ -4,15 +4,20 @@ import 'package:profile_try_1/services/remote_services.dart';
 
 class ProfilController extends GetxController {
 
-  var profil;
+  var profil = List<Profil>.empty().obs;
 
   @override
   void onInit() {
-    fetchProfile();
+    fetchProfil();
     super.onInit();
   }
 
-  void fetchProfile() async {
+  void fetchProfilefromassets() async {
     var profil = RemoteServices.fetchProfileFromAssets();
+  }
+
+  void fetchProfil() async {
+    var pro = await RemoteServices.fetchProfil();
+    profil.value = pro;
   }
 }
