@@ -24,203 +24,225 @@ class ScreenProfil extends StatelessWidget {
     print("Profil:");
     print(adresse);
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Profil"),
-        backgroundColor: Glovar.grey,
-        actions: [
-          IconButton(
-              icon: Icon(Icons.edit),
-              onPressed: () {
-                Get.to(ScreenProfilSettings());
-              }
-          ),
-          IconButton(
-            icon: Icon(Icons.settings),
-            onPressed: () {}
-          ),
-
-        ]
-      ),
+      appBar:
+          AppBar(title: Text("Profil"), backgroundColor: Glovar.grey, actions: [
+        IconButton(
+            icon: Icon(Icons.edit),
+            onPressed: () {
+              Get.to(ScreenProfilSettings());
+            }),
+        IconButton(icon: Icon(Icons.settings), onPressed: () {}),
+      ]),
       body: SingleChildScrollView(
-      child: Column(
-        children: [
-          Container(
-            child: Center(
-              child: Container(
-                margin: EdgeInsets.all(20.0),
-                width: 200,
-                height: 200,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                      image: NetworkImage(
-                          'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2F25%2F49%2F82%2F25498264b4b0e7bd98587789c0e4ffaa.jpg&f=1&nofb=1'),
-                      fit: BoxFit.fill),
+        child: Column(
+          children: [
+            Container(
+              child: Center(
+                child: Container(
+                  margin: EdgeInsets.all(20.0),
+                  width: 200,
+                  height: 200,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                        image: NetworkImage(
+                            'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2F25%2F49%2F82%2F25498264b4b0e7bd98587789c0e4ffaa.jpg&f=1&nofb=1'),
+                        fit: BoxFit.fill),
+                  ),
                 ),
               ),
             ),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 5.0),
-            width: 500,
-            child: Text(
-              profil.vorname! + ' ' + profil.name!,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-              textAlign: TextAlign.center,
+            Container(
+              margin: EdgeInsets.only(top: 5.0),
+              width: 500,
+              child: Text(
+                profil.vorname! + ' ' + profil.name!,
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                textAlign: TextAlign.center,
+              ),
             ),
-          ),
-          Container(
+            Container(
               margin: EdgeInsets.only(left: 30.0, top: 30.0),
               child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text("Persönliche Daten",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w900, fontSize: 25)),
-                      Container(
-                          margin: EdgeInsets.only(top: 10.0),
-                          child: Row(
-                            children: [
-                              const Text(
-                                "E-Mail: ",
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                alignment: Alignment.centerLeft,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      child: Row(
+                        children: [
+                          const Text("Persönliche Daten",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w900, fontSize: 25
                               ),
-                              Text(email!),
-                            ],
                           ),
+                          IconButton(
+                              icon: Icon(Icons.edit),
+                              color: Glovar.grey,
+                              onPressed: () {},
+                          ),
+
+                        ],
+
                       ),
-                      Container(
-                        margin: EdgeInsets.only(top: 10.0),
-                        child: Row(
-                          children: [
-                            const Text(
-                              "Telefon: ",
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            Text(tel!),
-                          ],
-                        ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 10.0),
+                      child: Row(
+                        children: [
+                          const Text(
+                            "E-Mail: ",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          Text(email!),
+                        ],
                       ),
-                      Container(
-                        margin: EdgeInsets.only(top: 10.0),
-                        child: Row(
-                          children: [
-                            const Text(
-                              "Adresse: ",
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            Text(adresse),
-                          ],
-                        ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 10.0),
+                      child: Row(
+                        children: [
+                          const Text(
+                            "Telefon: ",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          Text(tel!),
+                        ],
                       ),
-                    ],
-                  ),
-              ),
-          ),
-          Container(
-            margin: EdgeInsets.only(left: 30.0, top: 30.0),
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text("Fähigkeiten",
-                      style: TextStyle(
-                          fontWeight: FontWeight.w900, fontSize: 25)),
-                  Container(
-                    margin: EdgeInsets.only(top: 10.0),
-                    child: Row(
-                      children: [
-                        const Text(
-                          "E-Mail: ",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        Text(email!),
-                      ],
                     ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(top: 10.0),
-                    child: Row(
-                      children: [
-                        const Text(
-                          "Telefon: ",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        Text(tel!),
-                      ],
+                    Container(
+                      margin: EdgeInsets.only(top: 10.0),
+                      child: Row(
+                        children: [
+                          const Text(
+                            "Adresse: ",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          Text(adresse),
+                        ],
+                      ),
                     ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(top: 10.0),
-                    child: Row(
-                      children: [
-                        const Text(
-                          "Adresse: ",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        Text(adresse),
-                      ],
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-          Container(
-            margin: EdgeInsets.only(left: 30.0, top: 30.0),
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text("Fähigkeiten",
-                      style: TextStyle(
-                          fontWeight: FontWeight.w900, fontSize: 25)),
-                  Container(
-                    margin: EdgeInsets.only(top: 10.0),
-                    child: Row(
-                      children: [
-                        const Text(
-                          "E-Mail: ",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        Text(email!),
-                      ],
+            Container(
+              margin: EdgeInsets.only(left: 30.0, top: 30.0),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      child: Row(
+                        children: [
+                          const Text("Fähigkeiten",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w900, fontSize: 25
+                            ),
+                          ),
+                          IconButton(
+                            icon: Icon(Icons.edit),
+                            color: Glovar.grey,
+                            onPressed: () {},
+                          ),
+
+                        ],
+
+                      ),
                     ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(top: 10.0),
-                    child: Row(
-                      children: [
-                        const Text(
-                          "Telefon: ",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        Text(tel!),
-                      ],
+                    Container(
+                      margin: EdgeInsets.only(top: 10.0),
+                      child: Row(
+                        children: [
+                          const Text(
+                            "E-Mail: ",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          Text(email!),
+                        ],
+                      ),
                     ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(top: 10.0),
-                    child: Row(
-                      children: [
-                        const Text(
-                          "Adresse: ",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        Text(adresse),
-                      ],
+                    Container(
+                      margin: EdgeInsets.only(top: 10.0),
+                      child: Row(
+                        children: [
+                          const Text(
+                            "Telefon: ",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          Text(tel!),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                    Container(
+                      margin: EdgeInsets.only(top: 10.0),
+                      child: Row(
+                        children: [
+                          const Text(
+                            "Adresse: ",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          Text(adresse),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
-      ),
+            Container(
+              margin: EdgeInsets.only(left: 30.0, top: 30.0),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text("Fähigkeiten",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w900, fontSize: 25)),
+                    Container(
+                      margin: EdgeInsets.only(top: 10.0),
+                      child: Row(
+                        children: [
+                          const Text(
+                            "E-Mail: ",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          Text(email!),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 10.0),
+                      child: Row(
+                        children: [
+                          const Text(
+                            "Telefon: ",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          Text(tel!),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 10.0),
+                      child: Row(
+                        children: [
+                          const Text(
+                            "Adresse: ",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          Text(adresse),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Glovar.black,
