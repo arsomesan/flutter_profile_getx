@@ -1,11 +1,14 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:profile_try_1/utils/user_simple_preferences.dart';
 import 'screens/screen_profil.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   HttpOverrides.global = new MyHttpOverrides();
+  await UserSimplePreferences.init();
   runApp(const MyApp());
 }
 

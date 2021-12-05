@@ -6,6 +6,7 @@ import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:profile_try_1/controller/profil_controller.dart';
 import 'package:profile_try_1/model/profil_model.dart';
 import 'package:profile_try_1/global/glovar.dart';
+import 'package:profile_try_1/utils/user_simple_preferences.dart';
 
 final ProfilController controller = Get.put(ProfilController());
 Profil profil = controller.profil[2];
@@ -20,12 +21,13 @@ var stadt = plz! + " " + ort!;
 var name = profil.vorname! + " " + profil.name!;
 
 
+
 class ScreenProfilSettings extends StatelessWidget {
   const ScreenProfilSettings({Key? key}) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
           title: Text("Profil bearbeiten"),
@@ -272,8 +274,8 @@ class ScreenProfilSettings extends StatelessWidget {
                   margin: EdgeInsets.only(top: 35, bottom: 50),
                   child: TextButton(
                     child: Text('Speichern'),
-                    onPressed: () {
-                      // Button to change the profile picture
+                    onPressed: () async {
+                      await UserSimplePreferences.setName(name);
                     },
                     style: TextButton.styleFrom(
                       primary: Glovar.white,
@@ -293,7 +295,8 @@ class ScreenProfilSettings extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Glovar.black,
         child: Icon(Icons.home),
-        onPressed: () {},
+        onPressed: () {
+        },
       ),
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: 1,
