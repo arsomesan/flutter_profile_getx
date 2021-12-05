@@ -32,7 +32,8 @@ class ScreenProfil extends StatelessWidget {
               // Button linking to last visited page
             },
           ),
-          backgroundColor: Glovar.blackvar,
+          backgroundColor: Glovar.white,
+          foregroundColor: Glovar.blackvar,
           actions: [
             IconButton(
                 icon: Icon(Icons.settings),
@@ -68,7 +69,7 @@ class ScreenProfil extends StatelessWidget {
             Container(
               child: Center(
                 child: Container(
-                  width: 150,
+                  width: 120,
                   height: 35,
                   margin: EdgeInsets.only(top: 10, bottom: 30),
                   child: TextButton(
@@ -267,9 +268,9 @@ class ScreenProfil extends StatelessWidget {
             Container(
               child: Center(
                 child: Container(
-                  width: 150,
+                  width: 140,
                   height: 35,
-                  margin: EdgeInsets.only(top: 30, bottom: 50),
+                  margin: EdgeInsets.only(top: 35, bottom: 50),
                   child: TextButton(
                     child: Text('Profil bearbeiten'),
                     onPressed: () {
@@ -288,33 +289,35 @@ class ScreenProfil extends StatelessWidget {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(bottom: 40),
+              height: 35,
               child: Center(
-                child: Column(
-                  children: [
-                    Container(
-                      child: TextButton(
-                        child: Text('Impressum'),
-                        onPressed: () {
-                          // Button linking to the impress page
-                        },
-                        style: TextButton.styleFrom(
-                          primary: Glovar.blackvar,
-                        ),
-                      ),
+                child: Container(
+                  child: TextButton(
+                    child: Text('Impressum'),
+                    onPressed: () {
+                      // Button linking to the impress page
+                    },
+                    style: TextButton.styleFrom(
+                      primary: Glovar.greylight,
                     ),
-                    Container(
-                      child: TextButton(
-                        child: Text('Datenschutz'),
-                        onPressed: () {
-                          // Button linking to the impress page
-                        },
-                        style: TextButton.styleFrom(
-                          primary: Glovar.blackvar,
-                        ),
-                      ),
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              height: 30,
+              margin: EdgeInsets.only(bottom: 60),
+              child: Center(
+                child: Container(
+                  child: TextButton(
+                    child: Text('Datenschutz'),
+                    onPressed: () {
+                      // Button linking to the impress page
+                    },
+                    style: TextButton.styleFrom(
+                      primary: Glovar.greylight,
                     ),
-                  ],
+                  ),
                 ),
               ),
             ),
