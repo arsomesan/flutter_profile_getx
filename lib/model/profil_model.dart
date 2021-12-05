@@ -55,17 +55,20 @@ class Profil {
 class Adresse {
   Adresse({
     this.ort,
+    this.plz,
     this.strasse,
     this.hausnummer,
   });
 
   String? ort;
+  String? plz;
   String? strasse;
   String? hausnummer;
 
   factory Adresse.fromJson(Map<String, dynamic> json) =>
       Adresse(
         ort: json["ort"],
+        plz: json["plz"],
         strasse: json["strasse"],
         hausnummer: json["hausnummer"],
       );
@@ -73,6 +76,7 @@ class Adresse {
   Map<String, dynamic> toJson() =>
       {
         "ort": ort,
+        "plz": plz,
         "strasse": strasse,
         "hausnummer": hausnummer,
       };

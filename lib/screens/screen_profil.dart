@@ -1,5 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_instance/src/extension_instance.dart';
+import 'package:profile_try_1/controller/profil_controller.dart';
+import 'package:profile_try_1/model/profil_model.dart';
+
+final ProfilController controller = Get.put(ProfilController());
+Profil profil = controller.profil[1];
+var email = profil.kontakt?.email;
+var tel = profil.kontakt?.tel;
+var strasse = profil.adresse?.strasse;
+var ort = profil.adresse?.ort;
+var plz = profil.adresse?.plz;
+var hausnummer = profil.adresse?.hausnummer;
+var adresse = strasse! + " " + hausnummer!;
+var stadt = plz! + " " + ort!;
 
 class ScreenProfil extends StatelessWidget {
   const ScreenProfil({Key? key}) : super(key: key);
@@ -7,9 +22,9 @@ class ScreenProfil extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:
-      AppBar(
-          title: Text("Profil"), centerTitle: true,
+      appBar: AppBar(
+          title: Text("Profil"),
+          centerTitle: true,
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios_sharp),
             onPressed: () {
@@ -36,7 +51,8 @@ class ScreenProfil extends StatelessWidget {
                   decoration: BoxDecoration(
                     //shape: BoxShape.circle,
                     image: DecorationImage(
-                      image: NetworkImage('https://static.wikia.nocookie.net/nickelodeon/images/f/f7/Jimmy_Neutron_-_Carl.png/revision/latest?cb=20160605152619&path-prefix=de'),
+                      image: NetworkImage(
+                          'https://static.wikia.nocookie.net/nickelodeon/images/f/f7/Jimmy_Neutron_-_Carl.png/revision/latest?cb=20160605152619&path-prefix=de'),
                       fit: BoxFit.cover,
                     ),
                     border: Border.all(
@@ -51,17 +67,20 @@ class ScreenProfil extends StatelessWidget {
             Container(
               child: Center(
                 child: Container(
-                  width: 110,
+                  width: 150,
                   height: 35,
                   margin: EdgeInsets.only(top: 10, bottom: 30),
-                  color: Colors.grey,
                   child: TextButton(
                     child: Text('Avatar ändern'),
                     onPressed: () {
                       // Button to change the profile picture
                     },
                     style: TextButton.styleFrom(
-                      primary: Colors.white,
+                        primary: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        backgroundColor: Colors.grey,
                     ),
                   ),
                 ),
@@ -81,11 +100,12 @@ class ScreenProfil extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    child: const Align(
+                    child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        'Carl Keucher',
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                        profil.vorname! + ' ' + profil.name!,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20),
                       ),
                     ),
                   ),
@@ -100,11 +120,12 @@ class ScreenProfil extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    child: const Align(
+                    child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        'carl.keucher@gmail.com',
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                        email!,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20),
                       ),
                     ),
                   ),
@@ -119,11 +140,12 @@ class ScreenProfil extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    child: const Align(
+                    child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        '+49 170 7462302',
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                        tel!,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20),
                       ),
                     ),
                   ),
@@ -138,11 +160,12 @@ class ScreenProfil extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    child: const Align(
+                    child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        'Leipziger Straße 123',
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                        adresse,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20),
                       ),
                     ),
                   ),
@@ -157,11 +180,12 @@ class ScreenProfil extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    child: const Align(
+                    child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        '36037 Fulda',
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                        stadt!,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20),
                       ),
                     ),
                   ),
@@ -187,9 +211,7 @@ class ScreenProfil extends StatelessWidget {
                                   backgroundColor: Colors.red,
                                   onPressed: () {
                                     print('I am the one thing in life.');
-                                  }
-                              )
-                          ),
+                                  })),
                           Container(
                               margin: EdgeInsets.only(left: 5),
                               child: InputChip(
@@ -198,9 +220,7 @@ class ScreenProfil extends StatelessWidget {
                                   backgroundColor: Colors.blue,
                                   onPressed: () {
                                     print('I am the one thing in life.');
-                                  }
-                              )
-                          ),
+                                  })),
                           Container(
                               margin: EdgeInsets.only(left: 5),
                               child: InputChip(
@@ -209,9 +229,7 @@ class ScreenProfil extends StatelessWidget {
                                   backgroundColor: Colors.green,
                                   onPressed: () {
                                     print('I am the one thing in life.');
-                                  }
-                              )
-                          ),
+                                  })),
                         ],
                       ),
                     ),
@@ -228,9 +246,7 @@ class ScreenProfil extends StatelessWidget {
                                   backgroundColor: Colors.deepPurple,
                                   onPressed: () {
                                     print('I am the one thing in life.');
-                                  }
-                              )
-                          ),
+                                  })),
                           Container(
                               margin: EdgeInsets.only(left: 5),
                               child: InputChip(
@@ -239,9 +255,7 @@ class ScreenProfil extends StatelessWidget {
                                   backgroundColor: Colors.orange,
                                   onPressed: () {
                                     print('I am the one thing in life.');
-                                  }
-                              )
-                          ),
+                                  })),
                         ],
                       ),
                     ),
@@ -252,17 +266,21 @@ class ScreenProfil extends StatelessWidget {
             Container(
               child: Center(
                 child: Container(
-                  width: 130,
+                  width: 150,
                   height: 35,
                   margin: EdgeInsets.only(top: 30, bottom: 50),
-                  color: Colors.grey,
                   child: TextButton(
                     child: Text('Profil bearbeiten'),
                     onPressed: () {
                       // Button to change the profile picture
                     },
                     style: TextButton.styleFrom(
-                      primary: Colors.white,
+                        primary: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        backgroundColor: Colors.grey,
+
                     ),
                   ),
                 ),
@@ -271,16 +289,31 @@ class ScreenProfil extends StatelessWidget {
             Container(
               margin: EdgeInsets.only(bottom: 40),
               child: Center(
-                child: Container(
-                  child: TextButton(
-                    child: Text('Impressum'),
-                    onPressed: () {
-                      // Button linking to the impress page
-                    },
-                    style: TextButton.styleFrom(
-                      primary: Colors.black54,
+                child: Column(
+                  children: [
+                    Container(
+                      child: TextButton(
+                        child: Text('Impressum'),
+                        onPressed: () {
+                          // Button linking to the impress page
+                        },
+                        style: TextButton.styleFrom(
+                          primary: Colors.black54,
+                        ),
+                      ),
                     ),
-                  ),
+                    Container(
+                      child: TextButton(
+                        child: Text('Datenschutz'),
+                        onPressed: () {
+                          // Button linking to the impress page
+                        },
+                        style: TextButton.styleFrom(
+                          primary: Colors.black54,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -293,6 +326,7 @@ class ScreenProfil extends StatelessWidget {
         onPressed: () {},
       ),
       bottomNavigationBar: BottomNavigationBar(
+          currentIndex: 1,
           backgroundColor: Colors.grey,
           selectedItemColor: Colors.white,
           items: const <BottomNavigationBarItem>[
@@ -304,10 +338,8 @@ class ScreenProfil extends StatelessWidget {
               icon: Icon(Icons.person),
               label: 'Profil',
             ),
-          ]
-      ),
-      floatingActionButtonLocation:
-      FloatingActionButtonLocation.centerDocked,
+          ]),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
