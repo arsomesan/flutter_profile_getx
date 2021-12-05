@@ -10,7 +10,7 @@ import 'package:profile_try_1/global/glovar.dart';
 import 'package:profile_try_1/screens/screen_profil_settings.dart';
 
 final ProfilController controller = Get.put(ProfilController());
-Profil profil = controller.profil[2];
+Profil profil = controller.profil[1];
 var email = profil.kontakt?.email;
 var tel = profil.kontakt?.tel;
 var strasse = profil.adresse?.strasse;

@@ -9,7 +9,7 @@ import 'package:profile_try_1/global/glovar.dart';
 import 'package:profile_try_1/utils/user_simple_preferences.dart';
 
 final ProfilController controller = Get.put(ProfilController());
-Profil profil = controller.profil[2];
+Profil profil = controller.profil[1];
 var email = profil.kontakt?.email;
 var tel = profil.kontakt?.tel;
 var strasse = profil.adresse?.strasse;
@@ -259,6 +259,14 @@ class ScreenProfilSettings extends StatelessWidget {
                                   onPressed: () {
                                     print('I am the one thing in life.');
                                   })),
+                          Container(
+                              margin: EdgeInsets.only(left: 5),
+                              child: IconButton(
+                                  icon: Icon(Icons.add),
+                                  onPressed: () {
+                                    // Button linking to settings page
+                                  })
+                          ),
                         ],
                       ),
                     ),
