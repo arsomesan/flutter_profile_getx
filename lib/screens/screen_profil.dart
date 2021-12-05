@@ -16,7 +16,8 @@ class ScreenProfil extends StatelessWidget {
               // Button linking to last visited page
             },
           ),
-          backgroundColor: Colors.black87,
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.black87,
           actions: [
             IconButton(
                 icon: Icon(Icons.settings),
@@ -51,18 +52,17 @@ class ScreenProfil extends StatelessWidget {
             Container(
               child: Center(
                 child: Container(
-                  width: 110,
+                  width: 120,
                   height: 35,
                   margin: EdgeInsets.only(top: 10, bottom: 30),
-                  color: Colors.grey,
-                  child: TextButton(
-                    child: Text('Avatar ändern'),
-                    onPressed: () {
-                      // Button to change the profile picture
-                    },
-                    style: TextButton.styleFrom(
-                      primary: Colors.white,
+                  child: FlatButton(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18.0),
                     ),
+                    color: Colors.grey,
+                    textColor: Colors.white,
+                    onPressed: () {},
+                    child: Text("Avatar ändern"),
                   ),
                 ),
               ),
@@ -186,7 +186,7 @@ class ScreenProfil extends StatelessWidget {
                                   labelStyle: TextStyle(color: Colors.white),
                                   backgroundColor: Colors.red,
                                   onPressed: () {
-                                    print('I am the one thing in life.');
+                                    // maybe onpresslong to move
                                   }
                               )
                           ),
@@ -197,7 +197,7 @@ class ScreenProfil extends StatelessWidget {
                                   labelStyle: TextStyle(color: Colors.white),
                                   backgroundColor: Colors.blue,
                                   onPressed: () {
-                                    print('I am the one thing in life.');
+                                    // maybe onpresslong to move
                                   }
                               )
                           ),
@@ -208,7 +208,7 @@ class ScreenProfil extends StatelessWidget {
                                   labelStyle: TextStyle(color: Colors.white),
                                   backgroundColor: Colors.green,
                                   onPressed: () {
-                                    print('I am the one thing in life.');
+                                    // maybe onpresslong to move
                                   }
                               )
                           ),
@@ -227,7 +227,7 @@ class ScreenProfil extends StatelessWidget {
                                   labelStyle: TextStyle(color: Colors.white),
                                   backgroundColor: Colors.deepPurple,
                                   onPressed: () {
-                                    print('I am the one thing in life.');
+                                    // maybe onpresslong to move
                                   }
                               )
                           ),
@@ -238,7 +238,7 @@ class ScreenProfil extends StatelessWidget {
                                   labelStyle: TextStyle(color: Colors.white),
                                   backgroundColor: Colors.orange,
                                   onPressed: () {
-                                    print('I am the one thing in life.');
+                                    // maybe onpresslong to move
                                   }
                               )
                           ),
@@ -252,28 +252,44 @@ class ScreenProfil extends StatelessWidget {
             Container(
               child: Center(
                 child: Container(
-                  width: 130,
+                  width: 140,
                   height: 35,
-                  margin: EdgeInsets.only(top: 30, bottom: 50),
-                  color: Colors.grey,
+                  margin: EdgeInsets.only(top: 35, bottom: 50),
+                  child: FlatButton(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18.0),
+                    ),
+                    color: Colors.grey,
+                    textColor: Colors.white,
+                    onPressed: () {},
+                    child: Text("Profil bearbeiten"),
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              height: 35,
+              child: Center(
+                child: Container(
                   child: TextButton(
-                    child: Text('Profil bearbeiten'),
+                    child: Text('Impressum'),
                     onPressed: () {
-                      // Button to change the profile picture
+                      // Button linking to the impress page
                     },
                     style: TextButton.styleFrom(
-                      primary: Colors.white,
+                      primary: Colors.black54,
                     ),
                   ),
                 ),
               ),
             ),
             Container(
-              margin: EdgeInsets.only(bottom: 40),
+              height: 30,
+              margin: EdgeInsets.only(bottom: 60),
               child: Center(
                 child: Container(
                   child: TextButton(
-                    child: Text('Impressum'),
+                    child: Text('Datenschutz'),
                     onPressed: () {
                       // Button linking to the impress page
                     },
@@ -293,6 +309,7 @@ class ScreenProfil extends StatelessWidget {
         onPressed: () {},
       ),
       bottomNavigationBar: BottomNavigationBar(
+          currentIndex: 1,
           backgroundColor: Colors.grey,
           selectedItemColor: Colors.white,
           items: const <BottomNavigationBarItem>[
