@@ -16,6 +16,7 @@ class Profil {
     this.vorname,
     this.login,
     this.password,
+    this.bild,
     this.adresse,
     this.kontakt,
     this.zugriff,
@@ -25,6 +26,7 @@ class Profil {
   String? vorname;
   String? login;
   String? password;
+  String? bild;
   Adresse? adresse;
   Kontakt? kontakt;
   Zugriff? zugriff;
@@ -35,6 +37,7 @@ class Profil {
         vorname: json["vorname"],
         login: json["login"],
         password: json["password"],
+        bild: json["bild"],
         adresse: Adresse.fromJson(json["adresse"]),
         kontakt: Kontakt.fromJson(json["kontakt"]),
         zugriff: Zugriff.fromJson(json["zugriff"]),
@@ -46,6 +49,7 @@ class Profil {
         "vorname": vorname,
         "login": login,
         "password": password,
+        "bild": bild,
         "adresse": adresse!.toJson(),
         "kontakt": kontakt!.toJson(),
         "zugriff": zugriff! .toJson(),
@@ -55,17 +59,20 @@ class Profil {
 class Adresse {
   Adresse({
     this.ort,
+    this.plz,
     this.strasse,
     this.hausnummer,
   });
 
   String? ort;
+  String? plz;
   String? strasse;
   String? hausnummer;
 
   factory Adresse.fromJson(Map<String, dynamic> json) =>
       Adresse(
         ort: json["ort"],
+        plz: json["plz"],
         strasse: json["strasse"],
         hausnummer: json["hausnummer"],
       );
@@ -73,6 +80,7 @@ class Adresse {
   Map<String, dynamic> toJson() =>
       {
         "ort": ort,
+        "plz": plz,
         "strasse": strasse,
         "hausnummer": hausnummer,
       };
