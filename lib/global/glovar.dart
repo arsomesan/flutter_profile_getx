@@ -10,4 +10,5 @@ class Glovar {
   static final green=Colors.green;
   static final purple=Colors.deepPurple;
   static final orange=Colors.orange;
+  static final greylight=Colors.black54;
 }
