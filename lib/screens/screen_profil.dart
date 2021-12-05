@@ -3,12 +3,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:profile_try_1/controller/profil_controller.dart';
 import 'package:profile_try_1/model/profil_model.dart';
 import 'package:profile_try_1/global/glovar.dart';
+import 'package:profile_try_1/screens/screen_profil_settings.dart';
 
 final ProfilController controller = Get.put(ProfilController());
-Profil profil = controller.profil[0];
+Profil profil = controller.profil[2];
 var email = profil.kontakt?.email;
 var tel = profil.kontakt?.tel;
 var strasse = profil.adresse?.strasse;
@@ -17,6 +19,7 @@ var plz = profil.adresse?.plz;
 var hausnummer = profil.adresse?.hausnummer;
 var adresse = strasse! + " " + hausnummer!;
 var stadt = plz! + " " + ort!;
+var name = profil.vorname! + " " + profil.name!;
 
 class ScreenProfil extends StatelessWidget {
   const ScreenProfil({Key? key}) : super(key: key);
@@ -67,30 +70,9 @@ class ScreenProfil extends StatelessWidget {
                 ),
               ),
             ),
+
             Container(
-              child: Center(
-                child: Container(
-                  width: 120,
-                  height: 35,
-                  margin: EdgeInsets.only(top: 10, bottom: 30),
-                  child: TextButton(
-                    child: Text('Avatar ändern'),
-                    onPressed: () {
-                      // Button to change the profile picture
-                    },
-                    style: TextButton.styleFrom(
-                        primary: Glovar.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        backgroundColor: Glovar.grey,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(left: 20),
+              margin: EdgeInsets.only(left: 20, top: 30),
               child: Column(
                 children: [
                   Container(
@@ -106,7 +88,7 @@ class ScreenProfil extends StatelessWidget {
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        profil.vorname! + ' ' + profil.name!,
+                        name,
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 20),
                       ),
@@ -275,7 +257,7 @@ class ScreenProfil extends StatelessWidget {
                   child: TextButton(
                     child: Text('Profil bearbeiten'),
                     onPressed: () {
-                      // Button to change the profile picture
+                      Get.to(ScreenProfilSettings());
                     },
                     style: TextButton.styleFrom(
                         primary: Glovar.white,
