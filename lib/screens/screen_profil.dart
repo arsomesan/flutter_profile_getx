@@ -4,6 +4,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:profile_try_1/controller/profil_controller.dart';
 import 'package:profile_try_1/model/profil_model.dart';
+import 'package:profile_try_1/global/glovar.dart';
 
 final ProfilController controller = Get.put(ProfilController());
 Profil profil = controller.profil[1];
@@ -31,7 +32,7 @@ class ScreenProfil extends StatelessWidget {
               // Button linking to last visited page
             },
           ),
-          backgroundColor: Colors.black87,
+          backgroundColor: Glovar.blackvar,
           actions: [
             IconButton(
                 icon: Icon(Icons.settings),
@@ -56,7 +57,7 @@ class ScreenProfil extends StatelessWidget {
                       fit: BoxFit.cover,
                     ),
                     border: Border.all(
-                      color: Colors.grey,
+                      color: Glovar.grey,
                       width: 1,
                     ),
                     borderRadius: BorderRadius.circular(100),
@@ -76,11 +77,11 @@ class ScreenProfil extends StatelessWidget {
                       // Button to change the profile picture
                     },
                     style: TextButton.styleFrom(
-                        primary: Colors.white,
+                        primary: Glovar.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        backgroundColor: Colors.grey,
+                        backgroundColor: Glovar.grey,
                     ),
                   ),
                 ),
@@ -91,11 +92,11 @@ class ScreenProfil extends StatelessWidget {
               child: Column(
                 children: [
                   Container(
-                    child: const Align(
+                    child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
                         'Name',
-                        style: TextStyle(color: Colors.black54),
+                        style: TextStyle(color: Glovar.blackvar),
                       ),
                     ),
                   ),
@@ -111,11 +112,11 @@ class ScreenProfil extends StatelessWidget {
                   ),
                   Container(
                     margin: EdgeInsets.only(top: 10),
-                    child: const Align(
+                    child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
                         'E-Mail',
-                        style: TextStyle(color: Colors.black54),
+                        style: TextStyle(color: Glovar.blackvar),
                       ),
                     ),
                   ),
@@ -131,11 +132,11 @@ class ScreenProfil extends StatelessWidget {
                   ),
                   Container(
                     margin: EdgeInsets.only(top: 10),
-                    child: const Align(
+                    child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
                         'Telefon',
-                        style: TextStyle(color: Colors.black54),
+                        style: TextStyle(color: Glovar.blackvar),
                       ),
                     ),
                   ),
@@ -151,11 +152,11 @@ class ScreenProfil extends StatelessWidget {
                   ),
                   Container(
                     margin: EdgeInsets.only(top: 30),
-                    child: const Align(
+                    child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
                         'Adresse',
-                        style: TextStyle(color: Colors.black54),
+                        style: TextStyle(color: Glovar.blackvar),
                       ),
                     ),
                   ),
@@ -171,11 +172,11 @@ class ScreenProfil extends StatelessWidget {
                   ),
                   Container(
                     margin: EdgeInsets.only(top: 10),
-                    child: const Align(
+                    child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
                         'Stadt',
-                        style: TextStyle(color: Colors.black54),
+                        style: TextStyle(color: Glovar.blackvar),
                       ),
                     ),
                   ),
@@ -191,11 +192,11 @@ class ScreenProfil extends StatelessWidget {
                   ),
                   Container(
                     margin: EdgeInsets.only(top: 30),
-                    child: const Align(
+                    child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
                         'Stärken',
-                        style: TextStyle(color: Colors.black54),
+                        style: TextStyle(color: Glovar.blackvar),
                       ),
                     ),
                   ),
@@ -207,8 +208,8 @@ class ScreenProfil extends StatelessWidget {
                           Container(
                               child: InputChip(
                                   label: const Text('Belastbarkeit'),
-                                  labelStyle: TextStyle(color: Colors.white),
-                                  backgroundColor: Colors.red,
+                                  labelStyle: TextStyle(color: Glovar.white),
+                                  backgroundColor: Glovar.red,
                                   onPressed: () {
                                     print('I am the one thing in life.');
                                   })),
@@ -216,8 +217,8 @@ class ScreenProfil extends StatelessWidget {
                               margin: EdgeInsets.only(left: 5),
                               child: InputChip(
                                   label: const Text('Teamfähigkeit'),
-                                  labelStyle: TextStyle(color: Colors.white),
-                                  backgroundColor: Colors.blue,
+                                  labelStyle: TextStyle(color: Glovar.white),
+                                  backgroundColor: Glovar.blue,
                                   onPressed: () {
                                     print('I am the one thing in life.');
                                   })),
@@ -225,8 +226,8 @@ class ScreenProfil extends StatelessWidget {
                               margin: EdgeInsets.only(left: 5),
                               child: InputChip(
                                   label: const Text('Offenheit'),
-                                  labelStyle: TextStyle(color: Colors.white),
-                                  backgroundColor: Colors.green,
+                                  labelStyle: TextStyle(color: Glovar.white),
+                                  backgroundColor: Glovar.green,
                                   onPressed: () {
                                     print('I am the one thing in life.');
                                   })),
@@ -242,8 +243,8 @@ class ScreenProfil extends StatelessWidget {
                           Container(
                               child: InputChip(
                                   label: const Text('Engagement'),
-                                  labelStyle: TextStyle(color: Colors.white),
-                                  backgroundColor: Colors.deepPurple,
+                                  labelStyle: TextStyle(color: Glovar.white),
+                                  backgroundColor: Glovar.purple,
                                   onPressed: () {
                                     print('I am the one thing in life.');
                                   })),
@@ -251,8 +252,8 @@ class ScreenProfil extends StatelessWidget {
                               margin: EdgeInsets.only(left: 5),
                               child: InputChip(
                                   label: const Text('Geduld'),
-                                  labelStyle: TextStyle(color: Colors.white),
-                                  backgroundColor: Colors.orange,
+                                  labelStyle: TextStyle(color: Glovar.white),
+                                  backgroundColor: Glovar.orange,
                                   onPressed: () {
                                     print('I am the one thing in life.');
                                   })),
@@ -275,11 +276,11 @@ class ScreenProfil extends StatelessWidget {
                       // Button to change the profile picture
                     },
                     style: TextButton.styleFrom(
-                        primary: Colors.white,
+                        primary: Glovar.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        backgroundColor: Colors.grey,
+                        backgroundColor: Glovar.grey,
 
                     ),
                   ),
@@ -298,7 +299,7 @@ class ScreenProfil extends StatelessWidget {
                           // Button linking to the impress page
                         },
                         style: TextButton.styleFrom(
-                          primary: Colors.black54,
+                          primary: Glovar.blackvar,
                         ),
                       ),
                     ),
@@ -309,7 +310,7 @@ class ScreenProfil extends StatelessWidget {
                           // Button linking to the impress page
                         },
                         style: TextButton.styleFrom(
-                          primary: Colors.black54,
+                          primary: Glovar.blackvar,
                         ),
                       ),
                     ),
@@ -321,14 +322,14 @@ class ScreenProfil extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.black,
+        backgroundColor: Glovar.black,
         child: Icon(Icons.home),
         onPressed: () {},
       ),
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: 1,
-          backgroundColor: Colors.grey,
-          selectedItemColor: Colors.white,
+          backgroundColor: Glovar.grey,
+          selectedItemColor: Glovar.white,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.search),
