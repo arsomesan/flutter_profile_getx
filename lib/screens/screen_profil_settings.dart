@@ -10,7 +10,7 @@ class ScreenProfilSettings extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Glovar.grey,
-          title: Text("Profil Einstellungen"),
+          title: Text("Profil Einstellungen KEKW"),
         ),
         body: SingleChildScrollView(
             child: Column(
