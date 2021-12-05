@@ -7,7 +7,7 @@ import 'package:profile_try_1/model/profil_model.dart';
 import 'package:profile_try_1/global/glovar.dart';
 
 final ProfilController controller = Get.put(ProfilController());
-Profil profil = controller.profil[1];
+Profil profil = controller.profil[0];
 var email = profil.kontakt?.email;
 var tel = profil.kontakt?.tel;
 var strasse = profil.adresse?.strasse;
@@ -53,7 +53,7 @@ class ScreenProfil extends StatelessWidget {
                     //shape: BoxShape.circle,
                     image: DecorationImage(
                       image: NetworkImage(
-                          'https://static.wikia.nocookie.net/nickelodeon/images/f/f7/Jimmy_Neutron_-_Carl.png/revision/latest?cb=20160605152619&path-prefix=de'),
+                          profil.bild!),
                       fit: BoxFit.cover,
                     ),
                     border: Border.all(
