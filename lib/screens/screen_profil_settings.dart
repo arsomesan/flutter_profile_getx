@@ -6,28 +6,53 @@ import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:profile_try_1/controller/profil_controller.dart';
 import 'package:profile_try_1/model/profil_model.dart';
 import 'package:profile_try_1/global/glovar.dart';
+import 'package:profile_try_1/screens/screen_profil.dart';
 import 'package:profile_try_1/utils/user_simple_preferences.dart';
 
-final ProfilController controller = Get.put(ProfilController());
-Profil profil = controller.profil[1];
-var email = profil.kontakt?.email;
-var tel = profil.kontakt?.tel;
-var strasse = profil.adresse?.strasse;
-var ort = profil.adresse?.ort;
-var plz = profil.adresse?.plz;
-var hausnummer = profil.adresse?.hausnummer;
-var adresse = strasse! + " " + hausnummer!;
-var stadt = plz! + " " + ort!;
-var name = profil.vorname! + " " + profil.name!;
 
 
 
-class ScreenProfilSettings extends StatelessWidget {
-  const ScreenProfilSettings({Key? key}) : super(key: key);
+
+class ScreenProfilSettings extends StatefulWidget {
+  ScreenProfilSettings({Key? key}) : super(key: key);
+
+
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return ProfilSettingsState();
+  }
+
+}
+
+
+class ProfilSettingsState extends State<ScreenProfilSettings> {
+  ProfilSettingsState();
+
+
+
+  final NameController = TextEditingController();
+  final EmailController = TextEditingController();
+
+  @override
+  void dispose() {
+    NameController.dispose();
+    EmailController.dispose();
+    super.dispose();
+  }
+
+  bool nameCheck = false;
+  bool emailCheck = false;
+
 
   @override
   Widget build(BuildContext context) {
-
+    var name = (UserSimplePreferences.getName()) ?? "test";
+    var email = (UserSimplePreferences.getEmail()) ?? "test";
+    var tel = (UserSimplePreferences.getTelefon()) ?? "test";
+    var adresse = (UserSimplePreferences.getAdresse()) ?? "test";
+    var stadt = (UserSimplePreferences.getStadt()) ?? "test";
+    var bild = (UserSimplePreferences.getPicture()) ?? "https://bit.ly/3JkoNKa";
     return Scaffold(
       appBar: AppBar(
           title: Text("Profil bearbeiten"),
@@ -35,7 +60,10 @@ class ScreenProfilSettings extends StatelessWidget {
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios_sharp),
             onPressed: () {
-              Get.back();
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => ScreenProfil()),
+              );
             },
           ),
           backgroundColor: Glovar.white,
@@ -60,7 +88,7 @@ class ScreenProfilSettings extends StatelessWidget {
                     //shape: BoxShape.circle,
                     image: DecorationImage(
                       image: NetworkImage(
-                          profil.bild!),
+                          bild),
                       fit: BoxFit.cover,
                     ),
                     border: Border.all(
@@ -108,12 +136,16 @@ class ScreenProfilSettings extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(right: 20),
+                      margin: EdgeInsets.only(right: 20),
                       child: TextFormField(
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: name,
-                        )
+                          controller: NameController,
+                          onChanged: (text) {
+                            nameCheck = true;
+                          },
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            hintText: name,
+                          )
                       )
                   ),
                   Container(
@@ -129,9 +161,13 @@ class ScreenProfilSettings extends StatelessWidget {
                   Container(
                       margin: EdgeInsets.only(right: 20),
                       child: TextFormField(
+                          controller: EmailController,
+                          onChanged: (text) {
+                            emailCheck = true;
+                          },
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
-                            hintText: email!,
+                            hintText: email,
                           )
                       )
                   ),
@@ -283,7 +319,15 @@ class ScreenProfilSettings extends StatelessWidget {
                   child: TextButton(
                     child: Text('Speichern'),
                     onPressed: () async {
-                      await UserSimplePreferences.setName(name);
+
+                      if (emailCheck) {
+                       await UserSimplePreferences.setEmail(EmailController.text);
+                      }
+
+                      if (nameCheck) {
+                        await UserSimplePreferences.setName(NameController.text);
+                      }
+
                     },
                     style: TextButton.styleFrom(
                       primary: Glovar.white,
@@ -323,4 +367,8 @@ class ScreenProfilSettings extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
+
 }
+
+
+

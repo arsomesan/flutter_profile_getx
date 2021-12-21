@@ -8,18 +8,8 @@ import 'package:profile_try_1/controller/profil_controller.dart';
 import 'package:profile_try_1/model/profil_model.dart';
 import 'package:profile_try_1/global/glovar.dart';
 import 'package:profile_try_1/screens/screen_profil_settings.dart';
+import 'package:profile_try_1/utils/user_simple_preferences.dart';
 
-final ProfilController controller = Get.put(ProfilController());
-Profil profil = controller.profil[1];
-var email = profil.kontakt?.email;
-var tel = profil.kontakt?.tel;
-var strasse = profil.adresse?.strasse;
-var ort = profil.adresse?.ort;
-var plz = profil.adresse?.plz;
-var hausnummer = profil.adresse?.hausnummer;
-var adresse = strasse! + " " + hausnummer!;
-var stadt = plz! + " " + ort!;
-var name = profil.vorname! + " " + profil.name!;
 
 class ScreenProfil extends StatelessWidget {
   const ScreenProfil({Key? key}) : super(key: key);
@@ -27,6 +17,12 @@ class ScreenProfil extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var name = (UserSimplePreferences.getName()) ?? "test";
+    var email = (UserSimplePreferences.getEmail()) ?? "test";
+    var tel = (UserSimplePreferences.getTelefon()) ?? "test";
+    var adresse = (UserSimplePreferences.getAdresse()) ?? "test";
+    var stadt = (UserSimplePreferences.getStadt()) ?? "test";
+    var bild = (UserSimplePreferences.getPicture()) ?? "https://bit.ly/3JkoNKa";
     return Scaffold(
       appBar: AppBar(
           title: Text("Profil"),
@@ -59,7 +55,7 @@ class ScreenProfil extends StatelessWidget {
                     //shape: BoxShape.circle,
                     image: DecorationImage(
                       image: NetworkImage(
-                          profil.bild!),
+                          bild!),
                       fit: BoxFit.cover,
                     ),
                     border: Border.all(
@@ -89,7 +85,7 @@ class ScreenProfil extends StatelessWidget {
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        name,
+                        name!,
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 20),
                       ),
@@ -149,7 +145,7 @@ class ScreenProfil extends StatelessWidget {
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        adresse,
+                        adresse!,
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 20),
                       ),
@@ -258,7 +254,11 @@ class ScreenProfil extends StatelessWidget {
                   child: TextButton(
                     child: Text('Profil bearbeiten'),
                     onPressed: () {
-                      Get.to(ScreenProfilSettings());
+                      //Get.to(ScreenProfilSettings());
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => ScreenProfilSettings()),
+                      );
                     },
                     style: TextButton.styleFrom(
                         primary: Glovar.white,
