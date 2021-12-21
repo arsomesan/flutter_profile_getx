@@ -42,7 +42,8 @@ class UserSimplePreferences {
 
   static Future init() async {
     _preferences = await SharedPreferences.getInstance();
-     setVars(0);
+    _preferences.clear();
+     //setVars(0);
   }
 
   static Future setName(String name) async =>
@@ -52,16 +53,16 @@ class UserSimplePreferences {
     await _preferences.setString(_keyEmail, email);
 
   static Future setTelefon(String telefon) async =>
-      await _preferences.setString(_keyEmail, telefon);
+      await _preferences.setString(_keyTelefon, telefon);
 
   static Future setAdresse(String adresse) async =>
-      await _preferences.setString(_keyEmail, adresse);
+      await _preferences.setString(_keyAdresse, adresse);
 
   static Future setStadt(String stadt) async =>
-      await _preferences.setString(_keyEmail, stadt);
+      await _preferences.setString(_keyStadt, stadt);
 
   static Future setPicture(String pictureurl) async =>
-      await _preferences.setString(_keyEmail, pictureurl);
+      await _preferences.setString(_keyPicture, pictureurl);
 
   static String? getName() => _preferences.getString(_keyName);
   static String? getEmail() => _preferences.getString(_keyEmail);

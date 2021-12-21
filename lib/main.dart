@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:profile_try_1/screens/screen_profil_loader.dart';
 import 'package:profile_try_1/utils/user_simple_preferences.dart';
-import 'screens/screen_profil.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 class MyApp extends StatelessWidget {
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const ScreenProfil(),
+      home: const ProfilLoader(),
     );
   }
 }
