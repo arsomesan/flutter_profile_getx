@@ -293,7 +293,7 @@ Widget profile(List<Profil>? profil) {
                 child: TextButton(
                   child: Text('Profil bearbeiten'),
                   onPressed: () {
-                    Get.to(() => ProfilSettingsLoader());
+                    Get.off(() => ProfilSettingsLoader());
                     /*
                     Navigator.pushReplacement(
                       context,

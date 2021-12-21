@@ -87,6 +87,12 @@ Widget profile(List<Profil>? profil) {
     appBar: AppBar(
         title: Text("Profil bearbeiten"),
         centerTitle: true,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios_sharp),
+          onPressed: () {
+            Get.off(() => ProfilLoader());
+          },
+        ),
         backgroundColor: Glovar.white,
         foregroundColor: Glovar.blackvar,
         actions: [
@@ -372,6 +378,7 @@ Widget profile(List<Profil>? profil) {
                     if (stadtCheck) {
                       await UserSimplePreferences.setStadt(StadtController.text);
                     }
+
 
                   },
                   style: TextButton.styleFrom(
